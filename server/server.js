@@ -21,11 +21,11 @@ const PORT = process.env.PORT || 3001;
 const rebuild = process.argv[2] === "--rebuild";
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, "../client/public")));
+//app.use(express.static(path.join(__dirname, "../client/public")));
 
 // Handle GET request at the root route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(/*__dirname, "public", "index.html"*/`${__dirname}`,"../client/index.html"));
 });
 
 // Add routes

@@ -1,4 +1,5 @@
 import React from "react";
+import "./QAPage.css";
 
 const QAPage = () => {
   const questions = [

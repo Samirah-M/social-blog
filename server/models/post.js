@@ -6,13 +6,6 @@ class Post extends Model {}
 
 Post.init(
   {
-    postId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "post",
-            key: "id",
-          },
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -25,13 +18,9 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    text: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false,
-    },
-    creation_time: {
-        type: DataTypes.TIME,
-        allowNull: false,
     },
   },
   {

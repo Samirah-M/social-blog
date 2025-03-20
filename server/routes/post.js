@@ -5,18 +5,37 @@ const app = require("express").Router();
 // import the models
 const { Post/*Course, Category, User, EnrolledUser*/ } = require("../models/index");
 
+// Route to get all posts
+app.get("/", /*authMiddleware, */async (req, res) => {
+  try {
+    const posts = await Post.findAll();
 
-// Route to add a new Post
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: "Error retrieving posts", error });
+  }
+});
+
+// Route to get a post by id
+app.get("/:id", /*authMiddleware, */async (req, res) => {
+  try {
+    const posts = await Post.findByPk(req.params.id);
+    
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: "Error retrieving posts", error });
+  }
+});
+
+// Route to add a new post
 app.post("/", /*authMiddleware, */async (req, res) => {
     try {
-      const { postId, title, img_url, created_by, text, creation_time } = req.body;
+      const { title, img_url, created_by, content } = req.body;
       const post = await Post.create({
-        postId,
         title,
         img_url,
         created_by,
-        text,
-        creation_time,
+        content,
       });
   
       res.status(201).json(post);
@@ -25,18 +44,29 @@ app.post("/", /*authMiddleware, */async (req, res) => {
     }
   });
 
-// Route to get all posts
-app.get("/", /*authMiddleware, */async (req, res) => {
-    try {
-      const posts = await Post.findAll();
-  
-      res.json(courses);
-    } catch (error) {
-      res.status(500).json({ error: "Error retrieving posts", error });
-    }
-  });
+// Route to update a post
+app.put("/:id", /*authMiddleware, */async (req, res) => {
+  try {
+    const { title, img_url, content } = req.body;
+    const post = await Post.update(
+      { title, img_url, content },
+      { where: { id: req.params.id } }
+    );
+    res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: "Error updating course" });
+  }
+});
 
-
+// Route to delete a post
+app.delete("/:id", /*authMiddleware, */async (req, res) => {
+  try {
+    const post = await Post.destroy({ where: { id: req.params.id } });
+    res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting course" });
+  }
+});
 
 /*
 //unneeded i think
@@ -73,32 +103,7 @@ app.get("/:id", authMiddleware, async (req, res) => {
     console.log(error);
     res.status(500).json({ error: "Error retrieving course" });
   }
-});
-
-// Route to update a post
-app.put("/:id", authMiddleware, async (req, res) => {
-  try {
-    const { title, description, created_by, categoryId } = req.body;
-    const course = await Course.update(
-      { title, description, created_by, categoryId },
-      { where: { id: req.params.id } }
-    );
-    res.json(course);
-  } catch (error) {
-    res.status(500).json({ error: "Error updating course" });
-  }
-});
-
-// Route to delete a post
-app.delete("/:id", authMiddleware, async (req, res) => {
-  try {
-    const course = await Course.destroy({ where: { id: req.params.id } });
-    res.json(course);
-  } catch (error) {
-    res.status(500).json({ error: "Error deleting course" });
-  }
-});
-*/
+});*/
 
 // export the router
 module.exports = app;

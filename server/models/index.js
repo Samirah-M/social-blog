@@ -1,8 +1,10 @@
 // import all models
 const Post = require("./post");
-//const Category = require("./category");
-//const User = require("./user");
-//const EnrolledUser = require("./enrolled_user");
+const User = require("./user");
+
+Post.belongsTo(User, {
+  foreignKey: "id",
+});
 
 /*Course.belongsTo(Category, {
   foreignKey: "categoryId",
@@ -26,4 +28,5 @@ Course.belongsToMany(User, {
 
 module.exports = {
     Post,
+    User,
 };

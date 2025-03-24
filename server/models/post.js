@@ -15,7 +15,7 @@ Post.init(
       allowNull: true,
     },
     created_by: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     content: {

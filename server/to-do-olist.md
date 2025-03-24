@@ -3,8 +3,11 @@
 ## Frontend
 
 make frontend access to backend look good
-    and make it output to a repeatable block standard
+X    and make it output to a repeatable block standard
 add inputs for adding and updating
+after auth
+    only allow updating and deleting your own posts
+    your posts page
 
 ## Backend
 

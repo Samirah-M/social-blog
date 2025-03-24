@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./CSS/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +23,16 @@ const Navbar = () => {
           <li>
             <Link to="/login" onClick={() => setIsOpen(false)}>
               Login
+            </Link>
+          </li>
+          <li>
+            <Link to="/sign-up" onClick={() => setIsOpen(false)}>
+              Sign Up
+            </Link>
+          </li>
+          <li>
+            <Link to="/new-post" onClick={() => setIsOpen(false)}>
+              New Post
             </Link>
           </li>
         </ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./QAPage.css";
+import "./CSS/QAPage.css";
 
 const QAPage = () => {
   const questions = [

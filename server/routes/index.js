@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const postRoutes = require("./post");
 //const categoryRoutes = require("./category");
-//const userRoutes = require("./user");
+const userRoutes = require("./user");
 
 // create a default route for /api
 router.get("/api", (req, res) => {
@@ -11,6 +11,6 @@ router.get("/api", (req, res) => {
 
 router.use("/api/posts", postRoutes);
 //router.use("/api/courses", courseRoutes);
-//router.use("/api/users", userRoutes);
+router.use("/api/users", userRoutes);
 
 module.exports = router;

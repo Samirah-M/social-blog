@@ -37,16 +37,18 @@ const QAPage = () => {
   ];
 
   return (
-    <div>
-      <h1>Q&A Page</h1>
-      <ul>
-        {questions.map((question) => (
-          <li key={question.id}>
-            <h2>{question.question}</h2>
-            <p>{question.answer}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="container">
+      <div className="qa-section">
+        <h1>Q&A Page</h1>
+        <ul>
+          {questions.map((question) => (
+            <li key={question.id} className="qa-item">
+              <h2>{question.question}</h2>
+              <p>{question.answer}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

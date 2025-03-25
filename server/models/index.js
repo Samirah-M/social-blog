@@ -3,6 +3,10 @@ const Post = require("./post");
 const User = require("./user");
 
 Post.belongsTo(User, {
+  foreignKey: "created_by",
+});
+
+User.hasMany(Post, {
   foreignKey: "id",
 });
 

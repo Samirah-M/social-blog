@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSession } from '../contexts/SessionContext';
 import "./CSS/AllPosts.css";
 import api from '../api';
 
 const AllPosts = () => {
   const [allPosts, setAllPosts] = useState([]);
+  const { user } = useSession();
   const navigate = useNavigate();
 
   useEffect(() => {
     delayedFetch();
   }, []);
 
-  const fetchAllPosts = async () => {
-    try {
-      const response = await api.get('/api/posts');
-      setAllPosts(response.data);
-    } catch (error) {
-      console.error('Failed to fetch all posts', error);
-    }
+  const delayedFetch = () => {
+    setTimeout(fetchPostbyUser,100);
   }
 
-  const delayedFetch = () => {
-    setTimeout(fetchAllPosts,100);
+  const fetchPostbyUser = async (e) => {
+    try {
+      const response = await api.get(`/api/posts/${user.id}`);
+      setAllPosts(response.data);
+    } catch (error) {
+      console.error('Failed to fetch post', error);
+    }
   }
 
   const addPost = async () => {
@@ -48,9 +50,9 @@ const AllPosts = () => {
         {allPosts.map((post) => (
           <li className="post" key={post.id}>
             {post.title}<br />
-            {post.img_url!="" && <span>{post.img_url}<br /></span>}
+            {post.img_url}<br />
+            {post.user.username}<br />
             {post.content}<br />
-            By: {post.user.username}<br />
             <button id={post.id} onClick={(e) => deletePost(e)}>Delete</button>
             <button id={post.id} onClick={(e) => updatePost(e)}>Update</button>
           </li>

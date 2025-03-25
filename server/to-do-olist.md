@@ -4,14 +4,16 @@
 
 make frontend access to backend look good
 X    and make it output to a repeatable block standard
-add inputs for adding and updating
+X add inputs for adding and updating
 after auth
     only allow updating and deleting your own posts
-    your posts page
+X    your posts page
+add error messages for, like, everything
+    will require error testing and will probably reveal more bugs
 
 ## Backend
 
-add users and normalise database as needed
-add authentification of users
-    requires auth tokens, db relations
-    signup, login pages
+X add users and normalise database as needed
+X add authentification of users
+X    requires auth tokens, db relations
+X    signup, login pages

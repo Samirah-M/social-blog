@@ -21,6 +21,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/my-posts" onClick={() => setIsOpen(false)}>
+              My Posts
+            </Link>
+          </li>
+          <li>
             <Link to="/login" onClick={() => setIsOpen(false)}>
               Login
             </Link>

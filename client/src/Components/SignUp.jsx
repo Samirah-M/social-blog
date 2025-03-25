@@ -45,6 +45,7 @@ const SignUp = () => {
         username: data.user.username,
         id: data.user.id,
       });
+      console.log()
 
       navigate('/');
     } catch (error) {

@@ -25,11 +25,11 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-info">
-          <p>&copy; 2025 Stock Sage</p>
           <p>
             "The stock market is filled with individuals who know the price of
             everything, but the value of nothing.” – Philip Fisher
           </p>
+          <p>&copy; 2025 Stock Sage</p>
         </div>
       </div>
     </footer>

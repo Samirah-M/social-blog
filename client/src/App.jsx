@@ -9,7 +9,7 @@ import AddPost from "./Components/AddPost";
 import UpdatePost from "./Components/UpdatePost";
 import Footer from "./Components/Footer";
 
-import { SessionProvider } from './contexts/SessionContext';
+import { SessionProvider } from "./contexts/SessionContext";
 
 function App() {
   return (

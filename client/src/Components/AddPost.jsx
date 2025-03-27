@@ -24,8 +24,6 @@ const AddPost = () => {
 
     return (
         <div>
-            <h1>test</h1>
-            <br />
             <form onSubmit={submitForm}>
                 <h2>New Post</h2>
                 <input
@@ -47,7 +45,6 @@ const AddPost = () => {
                 placeholder="Image URL (If applicable)"
                 value={img_url}
                 onChange={(e) => setImgUrl(e.target.value)}/>
-                <br />
                 <button type="submit">Submit</button>
             </form>
         </div>

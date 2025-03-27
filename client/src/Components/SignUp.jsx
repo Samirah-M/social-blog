@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import api from '../api';
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
+import "./CSS/Auth.css";
 
 const SignUp = () => {
-  const [email, setEmail] = useState('jason@fl1.digital');
-  const [userName, setUserName] = useState('fl1jason');
-  const [password, setPassword] = useState('Letmein123!');
-  const [password2, setPassword2] = useState('Letmein123!');
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
 
   const { setUser } = useSession();
   const [error, setError] = useState('');
@@ -47,7 +48,7 @@ const SignUp = () => {
       });
       console.log()
 
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       console.error('Signup failed', error);
     }
@@ -63,6 +64,7 @@ const SignUp = () => {
         onChange={(e) => setUserName(e.target.value)}
         required
       />
+      <br />
       <input
         type="email"
         placeholder="Email"
@@ -70,6 +72,7 @@ const SignUp = () => {
         onChange={(e) => setEmail(e.target.value)}
         required
       />
+      <br />
       <input
         type="password"
         placeholder="Password"
@@ -77,6 +80,7 @@ const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+      <br />
       <input
         type="password"
         placeholder="Confirm Password"

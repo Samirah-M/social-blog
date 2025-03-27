@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import api from '../api';
 import { useNavigate } from 'react-router-dom';
-
 import { useSession } from '../contexts/SessionContext';
+import "./CSS/Auth.css";
 
 const defaultUser = {
-  email: 'jason@fl1.digital',
-  password: 'Letmein123!',
+  email: '',
+  password: '',
 };
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
 
 
       localStorage.setItem('authToken', data.token);
-      navigate('/');
+      navigate("/posts");
     } catch (error) {
       console.error('Login failed', error);
       //display error, probably account not found
@@ -43,11 +43,12 @@ const Login = () => {
       <h2>Login</h2>
       <input
         type="text"
-        placeholder="email"
+        placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
+      <br />
       <input
         type="password"
         placeholder="Password"

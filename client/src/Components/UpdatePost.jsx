@@ -25,9 +25,6 @@ const UpdatePost = () => {
 
     return (
         <div>
-            <h1>test</h1>
-            <br />
-
             <form onSubmit={submitForm}>
                 <h2>Edit Post</h2>
                 <input
@@ -43,7 +40,6 @@ const UpdatePost = () => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 required/>
-                <br />
                 <button type="submit">Submit</button>
             </form>
         </div>

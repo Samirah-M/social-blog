@@ -11,11 +11,12 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
   }
 
   .post {
+    background-color: rgb(21, 43, 83);
     border: 1px solid black;
     width: 20%;
     flex-direction: column;
@@ -38,6 +39,14 @@ ul {
 
   .post button:hover {
     background-color: #3e8e41;
+  }
+
+  .add-button {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .addPost {

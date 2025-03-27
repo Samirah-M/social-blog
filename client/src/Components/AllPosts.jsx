@@ -47,16 +47,18 @@ const AllPosts = () => {
       <ul className="posts">
         {allPosts.map((post) => (
           <li className="post" key={post.id}>
-            {post.title}<br />
-            {post.img_url!="" && <span>{post.img_url}<br /></span>}
-            {post.content}<br />
-            By: {post.user.username}<br />
+            {post.title}<br /><br />
+            {post.img_url!="" && <span>{post.img_url}<br /><br /></span>}
+            {post.content}<br /><br />
+            By: {post.user.username}<br /><br />
             <button id={post.id} onClick={(e) => deletePost(e)}>Delete</button>
             <button id={post.id} onClick={(e) => updatePost(e)}>Update</button>
           </li>
         ))}
       </ul>
-      <button className="addPost" onClick={addPost}>Add Post</button>
+      <div className="add-button">
+        <button className="addPost" onClick={addPost}>Add Post</button>
+      </div>
     </div>
   );
 };
